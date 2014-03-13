@@ -22,10 +22,57 @@ namespace Game
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private int[][] _data;
+
         public MainPage()
         {
             this.InitializeComponent();
-            
+
+        }
+
+        private void Page_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Windows.System.VirtualKey.Down:
+                case Windows.System.VirtualKey.S:
+                    //MoveDown();
+                    break;
+                case Windows.System.VirtualKey.Left:
+                case Windows.System.VirtualKey.A:
+                    //MoveLeft();
+                    break;
+                case Windows.System.VirtualKey.Right:
+                case Windows.System.VirtualKey.D:
+                    //MoveRight();
+                    break;
+                case Windows.System.VirtualKey.Up:
+                case Windows.System.VirtualKey.W:
+                    //MoveUp();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void MoveUp()
+        {
+            //
+        }
+
+        private void MoveDown()
+        {
+
+        }
+
+        private void MoveLeft()
+        {
+
+        }
+
+        private void MoveRight()
+        {
+
         }
     }
 }
