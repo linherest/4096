@@ -22,7 +22,7 @@ namespace Game
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private int[][] _data;
+        private int[,] _data = new int[5, 5];
 
         public MainPage()
         {
