@@ -9,7 +9,8 @@
     KeyDown="Page_KeyDown">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid HorizontalAlignment="Left" 
+        <Grid x:Name="GameBoard" 
+              HorizontalAlignment="Left" 
               Height="748" 
               Margin="10,10,0,0" 
               VerticalAlignment="Top" 
@@ -30,7 +31,7 @@
 				<RowDefinition Height=".2*"/>
             </Grid.RowDefinitions>
 
-        	<TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
+        	<!--<TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
             <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
             <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
             <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
@@ -63,7 +64,7 @@
             <TextBlock Grid.Column="4" Grid.Row="2" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
             <TextBlock Grid.Column="4" Grid.Row="3" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
             <TextBlock Grid.Column="4" Grid.Row="4" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
-            <TextBlock Grid.Column="4" Grid.Row="5" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>
+            <TextBlock Grid.Column="4" Grid.Row="5" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="115" Width="115"/>-->
         </Grid>
 
     </Grid>

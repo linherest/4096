@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Game.Model;
+using Game.Constant;
+using Windows.UI;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,12 +25,63 @@ namespace Game
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private int[,] _data = new int[5, 5];
+        private Cell[,] _cells;
+        private TextBlock[,] _textBlock;
 
         public MainPage()
         {
             this.InitializeComponent();
+            _cells = new Cell[Constants.CELL_SIZE, Constants.CELL_SIZE];
+            _textBlock = new TextBlock[Constants.CELL_SIZE, Constants.CELL_SIZE];
 
+            SolidColorBrush brush = new SolidColorBrush(Colors.Black);
+
+            for (int i = 0; i < Constants.CELL_SIZE; i++)
+            {
+                for (int j = 0; j < Constants.CELL_SIZE; j++)
+                {
+                    //Initialize cells
+                    _cells[i,j] = new Cell(Constants.DEFAULT_SCORE, i, j);
+
+                    //Position cells in grids
+                    Grid.SetRow(_textBlock[i, j], i);
+                    Grid.SetColumn(_textBlock[i, j], j);
+
+                    //Cell properties
+                    _textBlock[i, j] = new TextBlock();
+
+                    if (_cells[i, j].Score != Constants.DEFAULT_SCORE)
+                    {
+                        _textBlock[i, j].Text = _cells[i, j].Score.ToString();
+                    }
+                    _textBlock[i, j].Foreground = brush;
+                    _textBlock[i, j].Visibility = Visibility.Visible;
+                    _textBlock[i, j].VerticalAlignment = VerticalAlignment.Top;
+                    _textBlock[i, j].HorizontalAlignment = HorizontalAlignment.Center;
+                    _textBlock[i, j].Height = 115;
+                    _textBlock[i, j].Width = 115;
+
+                    //Add to Grid
+                    GameBoard.Children.Add(_textBlock[i, j]);
+                }
+            }
+        }
+
+        public void InitializeBoard()
+        {
+
+        }
+
+        public int GeneratePosition()
+        {
+            Random ran = new Random(0);
+            var pos = ran.Next(Constants.MIN_X, Constants.MAX_X);
+            return pos;
+        }
+
+        public int GenerateScore(int x, int y)
+        {
+            return 0;
         }
 
         private void Page_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -36,19 +90,19 @@ namespace Game
             {
                 case Windows.System.VirtualKey.Down:
                 case Windows.System.VirtualKey.S:
-                    //MoveDown();
+                    MoveDown();
                     break;
                 case Windows.System.VirtualKey.Left:
                 case Windows.System.VirtualKey.A:
-                    //MoveLeft();
+                    MoveLeft();
                     break;
                 case Windows.System.VirtualKey.Right:
                 case Windows.System.VirtualKey.D:
-                    //MoveRight();
+                    MoveRight();
                     break;
                 case Windows.System.VirtualKey.Up:
                 case Windows.System.VirtualKey.W:
-                    //MoveUp();
+                    MoveUp();
                     break;
                 default:
                     break;
@@ -57,7 +111,7 @@ namespace Game
 
         private void MoveUp()
         {
-            //
+            
         }
 
         private void MoveDown()
