@@ -43,33 +43,35 @@ namespace Game
                     //Initialize cells
                     _cells[i,j] = new Cell(Constants.DEFAULT_SCORE, i, j);
 
+                    //Add to Grid
+                    _textBlock[i, j] = new TextBlock();                    
+                    GameBoard.Children.Add(_textBlock[i, j]);
+
                     //Position cells in grids
                     Grid.SetRow(_textBlock[i, j], i);
                     Grid.SetColumn(_textBlock[i, j], j);
 
                     //Cell properties
-                    _textBlock[i, j] = new TextBlock();
-
-                    if (_cells[i, j].Score != Constants.DEFAULT_SCORE)
+                    //if (_cells[i, j].Score != Constants.DEFAULT_SCORE)
                     {
-                        _textBlock[i, j].Text = _cells[i, j].Score.ToString();
+                        _textBlock[i, j] = _cells[i, j].Score.ToString();
                     }
+
                     _textBlock[i, j].Foreground = brush;
                     _textBlock[i, j].Visibility = Visibility.Visible;
                     _textBlock[i, j].VerticalAlignment = VerticalAlignment.Top;
                     _textBlock[i, j].HorizontalAlignment = HorizontalAlignment.Center;
                     _textBlock[i, j].Height = 115;
                     _textBlock[i, j].Width = 115;
-
-                    //Add to Grid
-                    GameBoard.Children.Add(_textBlock[i, j]);
                 }
             }
         }
 
         public void InitializeBoard()
         {
-
+            //Random X
+            var x = GeneratePosition();
+            var y = GeneratePosition();
         }
 
         public int GeneratePosition()
