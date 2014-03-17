@@ -16,8 +16,6 @@ using Game.Model;
 using Game.Constant;
 using Windows.UI;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace Game
 {
     /// <summary>
@@ -31,6 +29,7 @@ namespace Game
         public MainPage()
         {
             this.InitializeComponent();
+
             _cells = new Cell[Constants.CELL_SIZE, Constants.CELL_SIZE];
             _textBlock = new TextBlock[Constants.CELL_SIZE, Constants.CELL_SIZE];
 
@@ -41,10 +40,18 @@ namespace Game
                 for (int j = 0; j < Constants.CELL_SIZE; j++)
                 {
                     //Initialize cells
-                    _cells[i,j] = new Cell(Constants.DEFAULT_SCORE, i, j);
+                    _cells[i, j] = new Cell(Constants.DEFAULT_SCORE, i, j);
 
                     //Add to Grid
-                    _textBlock[i, j] = new TextBlock();                    
+                    _textBlock[i, j] = new TextBlock()
+                    {
+                        Width = 115,
+                        Height = 115,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Top,
+                        Foreground = brush,
+                        Visibility = Visibility.Visible
+                    };
                     GameBoard.Children.Add(_textBlock[i, j]);
 
                     //Position cells in grids
@@ -54,15 +61,8 @@ namespace Game
                     //Cell properties
                     //if (_cells[i, j].Score != Constants.DEFAULT_SCORE)
                     {
-                        _textBlock[i, j] = _cells[i, j].Score.ToString();
+                        _textBlock[i, j].Text = _cells[i, j].Score.ToString();
                     }
-
-                    _textBlock[i, j].Foreground = brush;
-                    _textBlock[i, j].Visibility = Visibility.Visible;
-                    _textBlock[i, j].VerticalAlignment = VerticalAlignment.Top;
-                    _textBlock[i, j].HorizontalAlignment = HorizontalAlignment.Center;
-                    _textBlock[i, j].Height = 115;
-                    _textBlock[i, j].Width = 115;
                 }
             }
         }
@@ -113,7 +113,7 @@ namespace Game
 
         private void MoveUp()
         {
-            
+
         }
 
         private void MoveDown()
